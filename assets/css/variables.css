@@ -1,0 +1,155 @@
+:root {
+  /* ---------- Fonts ---------- */
+  --main-font: "Roboto",sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;                 /* Títulos, logotipo, saludos */
+  --font-body: 'Instrument Sans', system-ui, sans-serif;      /* Toda la interfaz */
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;      /* Horómetros, costos, códigos */
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ---------- Text scales - desktop ---------- */
+  --text-display: 34px;      /* Saludo de Inicio, números de KPI */
+  --text-h1: 30px;           /* Título de pantalla, nombre de máquina */
+  --text-kpi: 26px;          /* Indicadores en Detalle, Fallas, Reportes */
+  --text-dialog: 24px;       /* Título del panel de formularios */
+  --text-h2-card: 22px;      /* Nombre de finca en tarjeta */
+  --text-logo: 21px;         /* Logotipo */
+  --text-stat: 20px;         /* Próximo mantenimiento */
+  --text-h2: 17px;           /* Títulos de sección */
+  --text-h3: 15px;           /* Subtítulos de tarjeta, acciones rápidas */
+  --text-base: 14px;         /* Texto base, botones, campos */
+  --text-sm: 13px;           /* Texto secundario, etiquetas de campo */
+  --text-xs: 12px;           /* Chips, fechas, códigos, pistas */
+  --text-overline: 11px;     /* Etiquetas en MAYÚSCULAS */
+  --tracking-overline: 0.08em;
+  --line-height-body: 1.45;
+
+  /* ---------- Text scale - mobile ---------- */
+  --m-text-display: 28px;    /* Saludo de Inicio */
+  --m-text-h1: 26px;         /* Nombre de máquina, contador de horas */
+  --m-text-appbar: 20px;     /* Título de barra superior, stats */
+  --m-text-dialog: 18px;     /* Título de formularios a pantalla completa */
+  --m-text-input: 16px;      /* Campos (evita zoom en iOS), nombres en tarjetas */
+  --m-text-base: 15px;       /* Texto base, botones, mosaicos */
+  --m-text-nav: 11px;        /* Etiquetas del menú inferior */
+
+  /* ---------- App ---------- */
+  --brand: #1F3D2B;               /* Botón primario, menú activo, logo, selección */
+  --brand-hover: #15301F;         /* Hover del primario y enlaces */
+  --brand-focus: #2F6B3A;         /* Contorno de foco */
+  --brand-on: #FFFFFF;            /* Texto sobre --brand */
+  --brand-logo-icon: #E9F0DF;     /* Ícono dentro del logotipo */
+  --brand-soft: #EEF3EC;          /* Tarjeta "Sincronizado", cajas de cálculo */
+  --brand-selected: #F3F6F0;      /* Opción elegida (asignar operador) */
+
+  /* ---------- Backgrounds ---------- */
+  --bg-canvas: #E9EBE3;           /* Fondo exterior */
+  --bg-app: #F4F5EF;              /* Fondo de la aplicación, barra superior */
+  --bg-sidebar: #FBFBF7;          /* Menú lateral, panel de formularios, hoja móvil */
+  --bg-hover: #FAFAF6;            /* Fila en hover, zona de adjuntar */
+  --surface: #FFFFFF;             /* Tarjetas, tablas, campos */
+  --surface-muted: #ECEEE6;       /* Pista de barras, contadores, códigos, hover de menú */
+  --surface-segmented: #E7E9E1;   /* Control segmentado, línea del historial */
+  --avatar-bg: #E4E8DC;           /* Avatares con iniciales */
+
+  /* ---------- Borders ---------- */
+  --border: #E1E3DA;              /* Tarjetas, menú, barra superior */
+  --border-divider: #EEF0EA;      /* Divisores de filas */
+  --border-strong: #D3D7CB;       /* Botón secundario, eje de gráfica */
+  --border-input: #CFD3C7;        /* Campos, chips, filtros */
+  --border-dashed: #BFC4B6;       /* Zona "adjuntar fotos" */
+
+  /* ---------- Texts ---------- */
+  --text: #1B211A;                /* Texto principal */
+  --text-label: #2E352C;          /* Etiquetas de campo, códigos */
+  --text-nav: #3F473C;            /* Menú lateral, contadores */
+  --text-seg: #4A5347;            /* Opciones no activas del segmentado */
+  --text-muted: #5B6357;          /* Texto secundario (6:1 sobre blanco) */
+  --text-sync: #3F4A3C;           /* Texto de la tarjeta de sincronización */
+
+  /* ---------- States ---------- */
+  --ok-bg: #E3EFE3;
+  --ok-text: #1E5A2E;
+  --ok-fill: #2F7A43;
+
+  /* ---------- Estados: Revisión / Advertencia ---------- */
+  --warn-bg: #FBEFD6;
+  --warn-text: #7A4B00;
+  --warn-text-strong: #5C3900;    /* Aviso "sin conexión" en móvil */
+  --warn-fill: #C98A1B;           /* También barras "Correctivo" */
+
+  /* ---------- Estados: Falla / Crítico ---------- */
+  --bad-bg: #FBE3E0;
+  --bad-text: #8E1F15;
+  --bad-fill: #B3261E;
+  --danger: #A3261B;              /* Botón "Reportar falla" */
+  --danger-hover: #86200F;
+
+  /* ---------- Estados: En mantenimiento / Información ---------- */
+  --info-bg: #E2EAF3;
+  --info-text: #244A73;
+  --info-fill: #3C6A9E;
+
+  /* ---------- Estados: Asignación y neutro ---------- */
+  --assign-bg: #F3ECDD;
+  --assign-text: #6B4E16;
+  --neutral-bg: #ECEEE6;
+  --neutral-text: #3F473C;
+
+  /* ---------- Gráfica de costos ---------- */
+  --chart-preventive: var(--brand);
+  --chart-corrective: var(--warn-fill);
+
+  /* ---------- Notificación emergente ---------- */
+  --toast-bg: #1B211A;
+  --toast-text: #F4F5EF;
+  --toast-icon: #9FD3A8;
+
+  /* ---------- Capas y sombras ---------- */
+  --overlay: rgba(20, 26, 18, 0.42);
+  --shadow-seg: 0 1px 2px rgba(20, 26, 18, 0.12);
+  --shadow-drawer: -12px 0 40px rgba(20, 26, 18, 0.18);
+  --shadow-toast: 0 8px 24px rgba(20, 26, 18, 0.25);
+  --shadow-fab: 0 6px 16px rgba(31, 61, 43, 0.30);
+
+  /* ---------- Radios ---------- */
+  --radius-xs: 6px;        /* Chip de código */
+  --radius-sm: 8px;        /* Opción del segmentado */
+  --radius-md: 10px;       /* Botones y campos (escritorio) */
+  --radius-lg: 12px;       /* Botones y campos (móvil), íconos de acción */
+  --radius-card: 14px;     /* Tarjetas (escritorio) */
+  --radius-card-m: 16px;   /* Tarjetas (móvil) */
+  --radius-fab: 18px;      /* Botón "+" móvil */
+  --radius-sheet: 22px;    /* Hoja de acciones móvil */
+  --radius-pill: 999px;    /* Chips y filtros */
+
+  /* ---------- Espaciado ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  /* ---------- Tamaños de control ---------- */
+  --control-h: 44px;           /* Botón, campo, ítem de menú (mínimo táctil) */
+  --control-h-sm: 36px;        /* Botón pequeño, opción del segmentado */
+  --control-h-m: 52px;         /* Botón y campo en móvil */
+  --chip-h: 26px;
+  --icon-size: 20px;           /* 22px en móvil */
+  --bar-h: 6px;                /* Barras de progreso (8px en tarjetas de finca) */
+
+  /* ---------- Layout ---------- */
+  --sidebar-w: 256px;
+  --header-h: 72px;
+  --drawer-w: 560px;
+  --m-appbar-h: 60px;
+  --m-bottomnav-h: 76px;
+  --m-fab-size: 56px;
+}
