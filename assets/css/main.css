@@ -8,6 +8,6 @@
 }
 
 body {
-    background: var(--exterior-color);
+    background: var(--bg-canvas);
     padding: var(--space-4);
 }
