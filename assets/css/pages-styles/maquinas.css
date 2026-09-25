@@ -1,0 +1,85 @@
+@import url("../variables.css");
+
+.maquinas__header-container h2 {
+    font-size: var(--text-h1);
+}
+
+.maquinas__main-search {
+    padding: var(--space-4) 0;
+}
+
+.maquinas__main-search input {
+    width: 100%;
+    padding: var(--space-3);
+    outline: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.maquinas__main-card {
+    background: var(--surface);
+    padding: var(--space-4);
+    border-radius: var(--radius-card-m);
+    cursor: pointer;
+}
+
+.maquinas__main-card-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-2);
+}
+
+.maquinas__main-card-title span:first-child {
+    padding: var(--space-1);
+    background: var(--border);
+    color: var(--text-muted);
+    border-radius: var(--radius-xs);
+    font-size: var(--text-overline);
+}
+
+.maquinas__main-card-title span {
+    padding: var(--space-1);
+    border-radius: var(--radius-xs);
+    color: var(--ok-fill);
+    font-size: var(--text-overline);
+    background: #2f7a4371;
+    font-weight: bold;
+}
+
+.maquinas__main-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-bottom: var(--space-2);
+}
+
+.maquinas__main-card-info p:first-child {
+    font-weight: bold;
+    font-size: var(--text-base);
+}
+
+.maquinas__main-card-info p {
+    color: var(--text-muted);
+    font-size: var(--text-xs);
+}
+
+.maquinas__main-card-stat {
+    display: flex;
+    justify-content: space-between;
+}
+
+.maquinas__main-card-stat span {
+    font-size: var(--text-sm);
+}
+
+.maquinas__main-card-stat span:not(:first-child) {
+    color: var(--text-muted);
+}
+
+.maquinas__main-card-progress-bar {
+    margin-top: var(--space-1);
+    background: var(--ok-fill);
+    width: 140px;
+    height: 4px;
+    border-radius: var(--radius-xs);
+}
