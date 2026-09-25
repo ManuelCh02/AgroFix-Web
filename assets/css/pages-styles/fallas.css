@@ -1,0 +1,88 @@
+@import url("../variables.css");
+
+.fallas__header-container h2 {
+    font-size: var(--text-h1);
+}
+
+.fallas__main-btn-container {
+    margin: var(--space-4) 0;
+    padding: var(--space-1) var(--space-1);
+    background: var(--border-input);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+    height: fit-content;
+    border-radius: var(--radius-lg);
+}
+
+.fallas__main-btn-container button {
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    background: var(--surface);
+    font-weight: 500;
+    color: var(--text-seg);
+}
+
+.fallas__main-card {
+    background: var(--surface);
+    padding: var(--space-4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.fallas__main-card-titles {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fallas__main-card-titles span:first-child {
+    padding: var(--space-1);
+    background: var(--border);
+    color: var(--text-muted);
+    border-radius: var(--radius-xs);
+    font-size: var(--text-overline);
+}
+
+.fallas__main-card-titles span {
+    padding: var(--space-1);
+    border-radius: var(--radius-xs);
+    color: var(--danger);
+    font-size: var(--text-overline);
+    background: #a3261b62;
+    font-weight: bold;
+}
+
+.fallas__main-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin: var(--space-4) 0;
+}
+
+.fallas__main-card-info p:first-child {
+    font-weight: bold;
+    font-size: var(--m-text-input);
+}
+
+.fallas__main-card-info-middle {
+    font-weight: 400;
+}
+
+.fallas__main-card-info p:last-child {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+}
+
+.fallas__main-card-solve-btn {
+    background: var(--ok-text);
+    font-weight: bold;
+    font-size: var(--text-base);
+    border: 1px solid var(--border-dashed);
+    border-radius: var(--radius-md);
+    color: #fff;
+    width: 100%;
+    height: 50px;
+    outline: none;
+}
