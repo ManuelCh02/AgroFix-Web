@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AgroFix: registra las horas de uso de una máquina.">
+    <title>AgroFix | Registrar uso</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/components/form.css">
+    <link rel="stylesheet" href="../assets/css/components/panel.css">
+</head>
+<body class="panel-page">
+    <main class="panel">
+        <header class="panel__header">
+            <h1 class="panel__title">Registrar uso</h1>
+            <a class="icon-btn" href="../index.html" aria-label="Cerrar registro de uso">
+                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </a>
+        </header>
+
+        <form class="panel__content" action="#" method="post">
+            <div class="panel__body">
+                <div class="field">
+                    <label class="field__label" for="uso-maquina">Máquina</label>
+                    <select class="field__control field__control--select" id="uso-maquina" name="maquina" required>
+                        <option value="" disabled selected>Selecciona una máquina</option>
+                        <!-- Las opciones se cargarán desde la base de datos (data/maquinas.json) -->
+                        <option value="FU-0H">FU-0H · Fumigadora Jacto Arbus 400</option>
+                    </select>
+                </div>
+
+                <div class="field-row">
+                    <div class="field">
+                        <label class="field__label" for="uso-fecha">Fecha</label>
+                        <input class="field__control" id="uso-fecha" name="fecha" type="date" required>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="uso-inicio">Inicio</label>
+                        <input class="field__control" id="uso-inicio" name="inicio" type="time" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="field__label" for="uso-horas">Horas de uso</label>
+                    <div class="stepper">
+                        <button class="stepper__btn" type="button" aria-label="Restar 0,5 horas" aria-controls="uso-horas">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>
+                        </button>
+                        <input class="field__control stepper__input" id="uso-horas" name="horas" type="number" inputmode="decimal" min="0.5" max="24" step="0.5" value="1" required aria-describedby="uso-horas-hint">
+                        <button class="stepper__btn" type="button" aria-label="Sumar 0,5 horas" aria-controls="uso-horas">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                        </button>
+                    </div>
+                    <p class="field__hint" id="uso-horas-hint">Ajusta en intervalos de 0,5 h.</p>
+                </div>
+
+                <div class="field">
+                    <label class="field__label" for="uso-comentario">
+                        Comentario <span class="field__optional">(opcional)</span>
+                    </label>
+                    <textarea class="field__control field__control--textarea" id="uso-comentario" name="comentario" rows="4" maxlength="500" placeholder="Ej.: Fumigación del lote 3, sin novedades"></textarea>
+                </div>
+
+            </div>
+
+            <div class="panel__footer">
+                <button class="btn btn--primary" type="submit">Guardar uso</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

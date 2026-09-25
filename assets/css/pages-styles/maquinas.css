@@ -1,85 +1,68 @@
-@import url("../variables.css");
-
-.maquinas__header-container h2 {
-    font-size: var(--text-h1);
+/* ------------------------- BUSCADOR ------------------------- */
+.maquinas__search {
+    margin-bottom: var(--space-4);
 }
 
-.maquinas__main-search {
-    padding: var(--space-4) 0;
-}
-
-.maquinas__main-search input {
+.maquinas__search-input {
     width: 100%;
-    padding: var(--space-3);
-    outline: none;
-    border: 1px solid var(--border);
+    height: var(--control-h-m);
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 0 var(--space-4) 0 44px;
+    background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%235B6357' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 14px center;
+    border: 1px solid var(--border-input);
     border-radius: var(--radius-lg);
+    /* 16px evita el zoom automático en iOS */
+    font-size: var(--m-text-input);
+    transition: border-color 0.2s ease;
 }
 
-.maquinas__main-card {
-    background: var(--surface);
-    padding: var(--space-4);
-    border-radius: var(--radius-card-m);
-    cursor: pointer;
-}
-
-.maquinas__main-card-title {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: var(--space-2);
-}
-
-.maquinas__main-card-title span:first-child {
-    padding: var(--space-1);
-    background: var(--border);
+.maquinas__search-input::placeholder {
     color: var(--text-muted);
-    border-radius: var(--radius-xs);
-    font-size: var(--text-overline);
 }
 
-.maquinas__main-card-title span {
-    padding: var(--space-1);
-    border-radius: var(--radius-xs);
-    color: var(--ok-fill);
-    font-size: var(--text-overline);
-    background: #2f7a4371;
-    font-weight: bold;
+.maquinas__search-input:focus-visible {
+    border-color: var(--brand-focus);
+    outline-offset: 0;
 }
 
-.maquinas__main-card-info {
+/* ------------------------- TARJETA DE MÁQUINA ------------------------- */
+.maquinas__card-stats {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    margin-bottom: var(--space-2);
-}
-
-.maquinas__main-card-info p:first-child {
-    font-weight: bold;
-    font-size: var(--text-base);
-}
-
-.maquinas__main-card-info p {
-    color: var(--text-muted);
-    font-size: var(--text-xs);
-}
-
-.maquinas__main-card-stat {
-    display: flex;
+    align-items: baseline;
     justify-content: space-between;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
 }
 
-.maquinas__main-card-stat span {
+.maquinas__card-hours {
+    font-family: var(--font-mono);
+    font-size: var(--text-stat);
+    font-weight: var(--weight-semibold);
+}
+
+.maquinas__card-maint {
+    color: var(--text-muted);
     font-size: var(--text-sm);
 }
 
-.maquinas__main-card-stat span:not(:first-child) {
-    color: var(--text-muted);
+/* ------------------------- TABLET ------------------------- */
+@media (min-width: 768px) {
+    .maquinas__search {
+        max-width: 420px;
+        margin-bottom: var(--space-6);
+    }
+
+    .maquinas__search-input {
+        height: var(--control-h);
+        border-radius: var(--radius-md);
+        font-size: var(--text-base);
+    }
 }
 
-.maquinas__main-card-progress-bar {
-    margin-top: var(--space-1);
-    background: var(--ok-fill);
-    width: 140px;
-    height: 4px;
-    border-radius: var(--radius-xs);
+/* ------------------------- DESKTOP ------------------------- */
+@media (min-width: 1024px) {
+    .maquinas__search {
+        margin-bottom: var(--space-8);
+    }
 }

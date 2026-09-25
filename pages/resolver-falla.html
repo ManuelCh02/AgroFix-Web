@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AgroFix: marca una falla como resuelta.">
+    <title>AgroFix | Resolver falla</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/components/form.css">
+    <link rel="stylesheet" href="../assets/css/components/panel.css">
+</head>
+<body class="panel-page">
+    <main class="panel">
+        <header class="panel__header">
+            <h1 class="panel__title">Resolver falla</h1>
+            <a class="icon-btn" href="./fallas.html" aria-label="Cerrar resolución de falla">
+                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </a>
+        </header>
+
+        <form class="panel__content" action="#" method="post">
+            <div class="panel__body">
+                <section class="card" aria-labelledby="falla-resumen-title">
+                    <header class="card__header">
+                        <span class="badge badge--code">FU-0H</span>
+                        <span class="badge badge--danger">Crítica</span>
+                    </header>
+                    <h2 id="falla-resumen-title" class="card__title">Bomba y boquillas</h2>
+                    <p class="card__text">La bomba no genera presión; las boquillas no tienen caudal.</p>
+                    <p class="card__text">
+                        Reportada el <time datetime="09-21">21 sep</time>
+                        <span aria-hidden="true">·</span>
+                        Detenida: Sí
+                    </p>
+                </section>
+
+                <div class="field">
+                    <label class="field__label" for="resolver-fecha">Fecha de solución</label>
+                    <input class="field__control" id="resolver-fecha" name="fecha" type="date" required>
+                </div>
+
+                <div class="field">
+                    <label class="field__label" for="resolver-solucion">¿Cómo se solucionó?</label>
+                    <textarea class="field__control field__control--textarea" id="resolver-solucion" name="solucion" rows="4" maxlength="500" required placeholder="Ej.: Se cambió el diafragma de la bomba y se limpiaron las boquillas"></textarea>
+                </div>
+
+                <div class="field-row">
+                    <div class="field">
+                        <label class="field__label" for="resolver-repuestos">
+                            Repuestos <span class="field__optional">(opcional)</span>
+                        </label>
+                        <input class="field__control" id="resolver-repuestos" name="repuestos" type="text" maxlength="120" placeholder="Ej.: Diafragma">
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="resolver-costo">
+                            Costo <span class="field__optional">(opcional)</span>
+                        </label>
+                        <div class="affix affix--start">
+                            <span class="affix__text" aria-hidden="true">$</span>
+                            <input class="field__control" id="resolver-costo" name="costo" type="number" inputmode="numeric" min="0" step="1000" placeholder="0">
+                        </div>
+                    </div>
+                </div>
+
+                <label class="check check--ok">
+                    <input class="check__input" type="checkbox" name="operativa" value="si" checked>
+                    <span class="check__text">
+                        <span class="check__title">La máquina queda operativa</span>
+                        <span class="field__hint">Desmárcalo si sigue detenida por otro motivo.</span>
+                    </span>
+                </label>
+            </div>
+
+            <div class="panel__footer">
+                <button class="btn btn--primary" type="submit">Marcar como resuelta</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

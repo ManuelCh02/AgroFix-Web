@@ -99,6 +99,10 @@
   --neutral-bg: #ECEEE6;
   --neutral-text: #3F473C;
 
+  /* ---------- Acento: Registro de máquinas ---------- */
+  --purple-bg: #F1E6F0;
+  --purple-fill: #8A3585;
+
   /* ---------- Gráfica de costos ---------- */
   --chart-preventive: var(--brand);
   --chart-corrective: var(--warn-fill);
@@ -152,4 +156,12 @@
   --m-appbar-h: 60px;
   --m-bottomnav-h: 76px;
   --m-fab-size: 56px;
+  --nav-rail-w: 96px;          /* Menú lateral compacto (tablet) */
+  --content-max-w: 1200px;     /* Ancho máximo del contenido */
+
+  /* ---------- Breakpoints (referencia: no se pueden usar var() en @media) ----------
+     Mobile first:  < 768px  (estilos base)
+     Tablet:        >= 768px  @media (min-width: 768px)
+     Desktop:       >= 1024px @media (min-width: 1024px)
+  */
 }

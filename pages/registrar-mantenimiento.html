@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AgroFix: registra un mantenimiento preventivo o correctivo.">
+    <title>AgroFix | Registrar mantenimiento</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/components/form.css">
+    <link rel="stylesheet" href="../assets/css/components/panel.css">
+</head>
+<body class="panel-page">
+    <main class="panel">
+        <header class="panel__header">
+            <h1 class="panel__title">Registrar mantenimiento</h1>
+            <a class="icon-btn" href="../index.html" aria-label="Cerrar registro de mantenimiento">
+                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </a>
+        </header>
+
+        <form class="panel__content" action="#" method="post">
+            <div class="panel__body">
+                <div class="field">
+                    <label class="field__label" for="mant-maquina">Máquina</label>
+                    <select class="field__control field__control--select" id="mant-maquina" name="maquina" required>
+                        <option value="" disabled selected>Selecciona una máquina</option>
+                        <!-- Las opciones se cargarán desde la base de datos (data/maquinas.json) -->
+                        <option value="FU-0H">FU-0H · Fumigadora Jacto Arbus 400</option>
+                    </select>
+                </div>
+
+                <fieldset class="field">
+                    <legend class="field__label">Tipo de mantenimiento</legend>
+                    <div class="choice-group">
+                        <label class="choice choice--preventivo">
+                            <input class="choice__input" type="radio" name="tipo" value="preventivo" required checked>
+                            <span class="choice__text">Preventivo</span>
+                        </label>
+                        <label class="choice choice--correctivo">
+                            <input class="choice__input" type="radio" name="tipo" value="correctivo">
+                            <span class="choice__text">Correctivo</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="field-row">
+                    <div class="field">
+                        <label class="field__label" for="mant-fecha">Fecha</label>
+                        <input class="field__control" id="mant-fecha" name="fecha" type="date" required>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="mant-horometro">Horómetro</label>
+                        <div class="affix affix--end">
+                            <input class="field__control" id="mant-horometro" name="horometro" type="number" inputmode="decimal" min="0" step="0.5" required placeholder="0">
+                            <span class="affix__text" aria-hidden="true">h</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="field__label" for="mant-trabajos">Trabajos realizados</label>
+                    <textarea class="field__control field__control--textarea" id="mant-trabajos" name="trabajos" rows="4" maxlength="500" required placeholder="Ej.: Cambio de aceite y filtros, engrase general"></textarea>
+                </div>
+
+                <div class="field-row">
+                    <div class="field">
+                        <label class="field__label" for="mant-responsable">
+                            Responsable <span class="field__optional">(opcional)</span>
+                        </label>
+                        <input class="field__control" id="mant-responsable" name="responsable" type="text" maxlength="80" autocomplete="name" placeholder="Ej.: Taller Agromotor">
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="mant-costo">
+                            Costo <span class="field__optional">(opcional)</span>
+                        </label>
+                        <div class="affix affix--start">
+                            <span class="affix__text" aria-hidden="true">$</span>
+                            <input class="field__control" id="mant-costo" name="costo" type="number" inputmode="numeric" min="0" step="1000" placeholder="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel__footer">
+                <button class="btn btn--primary" type="submit">Registrar mantenimiento</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

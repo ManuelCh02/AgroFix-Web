@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AgroFix: reporta una falla en una máquina.">
+    <title>AgroFix | Reportar falla</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/components/form.css">
+    <link rel="stylesheet" href="../assets/css/components/panel.css">
+</head>
+<body class="panel-page">
+    <main class="panel">
+        <header class="panel__header">
+            <h1 class="panel__title">Reportar falla</h1>
+            <a class="icon-btn" href="../index.html" aria-label="Cerrar reporte de falla">
+                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </a>
+        </header>
+
+        <form class="panel__content" action="#" method="post">
+            <div class="panel__body">
+                <div class="field">
+                    <label class="field__label" for="falla-maquina">Máquina</label>
+                    <select class="field__control field__control--select" id="falla-maquina" name="maquina" required>
+                        <option value="" disabled selected>Selecciona una máquina</option>
+                        <!-- Las opciones se cargarán desde la base de datos (data/maquinas.json) -->
+                        <option value="FU-0H">FU-0H · Fumigadora Jacto Arbus 400</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label class="field__label" for="falla-sistema">Sistema afectado</label>
+                    <select class="field__control field__control--select" id="falla-sistema" name="sistema" required>
+                        <option value="" disabled selected>Selecciona el sistema</option>
+                        <option value="motor">Motor</option>
+                        <option value="electrico">Eléctrico</option>
+                        <option value="hidraulico">Hidráulico</option>
+                        <option value="transmision">Transmisión</option>
+                        <option value="bomba-boquillas">Bomba y boquillas</option>
+                        <option value="frenos-direccion">Frenos y dirección</option>
+                        <option value="llantas-rodaje">Llantas y rodaje</option>
+                        <option value="estructura">Estructura y chasis</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <fieldset class="field">
+                    <legend class="field__label">Severidad</legend>
+                    <div class="choice-group">
+                        <label class="choice choice--leve">
+                            <input class="choice__input" type="radio" name="severidad" value="leve" required>
+                            <span class="choice__text">Leve</span>
+                        </label>
+                        <label class="choice choice--moderada">
+                            <input class="choice__input" type="radio" name="severidad" value="moderada">
+                            <span class="choice__text">Moderada</span>
+                        </label>
+                        <label class="choice choice--critica">
+                            <input class="choice__input" type="radio" name="severidad" value="critica">
+                            <span class="choice__text">Crítica</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <label class="check">
+                    <input class="check__input" type="checkbox" name="detenida" value="si">
+                    <span class="check__text">
+                        <span class="check__title">La máquina quedó detenida</span>
+                        <span class="field__hint">Márcalo si no puede seguir operando.</span>
+                    </span>
+                </label>
+
+                <div class="field">
+                    <label class="field__label" for="falla-descripcion">¿Qué pasó?</label>
+                    <textarea class="field__control field__control--textarea" id="falla-descripcion" name="descripcion" rows="4" maxlength="500" required placeholder="Ej.: La bomba no genera presión y las boquillas no tienen caudal"></textarea>
+                </div>
+            </div>
+
+            <div class="panel__footer">
+                <button class="btn btn--danger" type="submit">Reportar falla</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

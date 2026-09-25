@@ -1,0 +1,339 @@
+/* ------------------------- FORMULARIOS ------------------------- */
+/* Componentes reutilizables: campo, fila de campos, campo con unidad, stepper, opciones y casilla. */
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    min-width: 0;
+}
+
+/* Un <fieldset class="field"> se ve igual que un campo normal */
+fieldset.field {
+    border: 0;
+}
+
+legend.field__label {
+    float: left;
+    width: 100%;
+    margin-bottom: var(--space-2);
+}
+
+legend.field__label + * {
+    clear: both;
+}
+
+.field__label {
+    color: var(--text-label);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+}
+
+.field__optional {
+    color: var(--text-muted);
+    font-weight: var(--weight-regular);
+}
+
+.field__hint {
+    color: var(--text-muted);
+    font-size: var(--text-xs);
+}
+
+.field__control {
+    width: 100%;
+    min-width: 0;
+    height: var(--control-h-m);
+    padding: 0 var(--space-4);
+    background: var(--surface);
+    border: 1px solid var(--border-input);
+    border-radius: var(--radius-lg);
+    color: var(--text);
+    /* 16px evita el zoom automático en iOS */
+    font-size: var(--m-text-input);
+    color-scheme: light;
+    transition: border-color 0.2s ease;
+}
+
+.field__control::placeholder {
+    color: var(--text-muted);
+}
+
+.field__control:hover {
+    border-color: var(--border-strong);
+}
+
+.field__control:focus-visible {
+    border-color: var(--brand-focus);
+    outline-offset: 0;
+}
+
+.field__control--select {
+    -webkit-appearance: none;
+    appearance: none;
+    padding-right: 44px;
+    background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%235B6357' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center;
+    cursor: pointer;
+}
+
+.field__control--textarea {
+    height: auto;
+    min-height: 112px;
+    padding: var(--space-3) var(--space-4);
+    line-height: var(--line-height-body);
+    resize: vertical;
+}
+
+/* Dos campos lado a lado que se apilan si no hay espacio */
+.field-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--space-4);
+}
+
+/* Campo con unidad al inicio ($) o al final (h) */
+.affix {
+    position: relative;
+}
+
+.affix__text {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    pointer-events: none;
+}
+
+.affix--start .affix__text {
+    left: var(--space-4);
+}
+
+.affix--start .field__control {
+    padding-left: 36px;
+}
+
+.affix--end .affix__text {
+    right: var(--space-4);
+}
+
+.affix--end .field__control {
+    padding-right: 40px;
+}
+
+/* Stepper: [ - ] [ valor ] [ + ] */
+.stepper {
+    display: grid;
+    grid-template-columns: var(--control-h-m) 1fr var(--control-h-m);
+    gap: var(--space-2);
+}
+
+.stepper__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--control-h-m);
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    color: var(--brand);
+    transition: background-color 0.2s ease;
+}
+
+.stepper__btn:hover {
+    background: var(--brand-soft);
+}
+
+.stepper__input {
+    font-family: var(--font-mono);
+    font-size: var(--text-stat);
+    font-weight: var(--weight-semibold);
+    text-align: center;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Oculta las flechas nativas del input numérico */
+.stepper__input::-webkit-inner-spin-button,
+.stepper__input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Opciones excluyentes (radio) con estilo de botón */
+/* Tantas columnas iguales como opciones haya */
+.choice-group {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    gap: var(--space-2);
+}
+
+.choice {
+    --choice-bg: var(--brand-selected);
+    --choice-text: var(--brand);
+    --choice-border: var(--brand);
+    position: relative;
+    display: flex;
+}
+
+.choice--leve {
+    --choice-bg: var(--info-bg);
+    --choice-text: var(--info-text);
+    --choice-border: var(--info-fill);
+}
+
+.choice--moderada {
+    --choice-bg: var(--warn-bg);
+    --choice-text: var(--warn-text);
+    --choice-border: var(--warn-fill);
+}
+
+.choice--critica {
+    --choice-bg: var(--bad-bg);
+    --choice-text: var(--bad-text);
+    --choice-border: var(--bad-fill);
+}
+
+.choice--preventivo {
+    --choice-bg: var(--brand-soft);
+    --choice-text: var(--brand);
+    --choice-border: var(--brand);
+}
+
+.choice--correctivo {
+    --choice-bg: var(--warn-bg);
+    --choice-text: var(--warn-text);
+    --choice-border: var(--warn-fill);
+}
+
+/* El radio queda invisible pero sigue siendo accesible y enfocable */
+.choice__input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.choice__text {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--control-h-m);
+    padding: 0 var(--space-2);
+    background: var(--surface);
+    border: 1px solid var(--border-input);
+    border-radius: var(--radius-lg);
+    color: var(--text-seg);
+    font-size: var(--text-base);
+    font-weight: var(--weight-medium);
+    text-align: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.choice:hover .choice__text {
+    border-color: var(--border-strong);
+}
+
+.choice__input:checked + .choice__text {
+    background: var(--choice-bg);
+    border-color: var(--choice-border);
+    box-shadow: inset 0 0 0 1px var(--choice-border);
+    color: var(--choice-text);
+    font-weight: var(--weight-semibold);
+}
+
+.choice__input:focus-visible + .choice__text {
+    outline: 2px solid var(--brand-focus);
+    outline-offset: 2px;
+}
+
+/* Casilla de verificación en una fila completa (roja por defecto, verde con --ok) */
+.check {
+    --check-bg: var(--bad-bg);
+    --check-border: var(--bad-fill);
+    --check-accent: var(--danger);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--surface);
+    border: 1px solid var(--border-input);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.check--ok {
+    --check-bg: var(--ok-bg);
+    --check-border: var(--ok-fill);
+    --check-accent: var(--ok-fill);
+}
+
+.check:hover {
+    border-color: var(--border-strong);
+}
+
+.check__input {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+    accent-color: var(--check-accent);
+    cursor: pointer;
+}
+
+.check__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.check__title {
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+}
+
+@supports selector(:has(a)) {
+    .check:has(.check__input:checked) {
+        background: var(--check-bg);
+        border-color: var(--check-border);
+    }
+}
+
+/* ------------------------- TABLET ------------------------- */
+@media (min-width: 768px) {
+    .field__control {
+        height: var(--control-h);
+        border-radius: var(--radius-md);
+        font-size: var(--text-base);
+    }
+
+    .field__control--textarea {
+        height: auto;
+    }
+
+    .stepper {
+        grid-template-columns: var(--control-h) 1fr var(--control-h);
+    }
+
+    .stepper__btn {
+        height: var(--control-h);
+        border-radius: var(--radius-md);
+    }
+
+    .stepper__input {
+        font-size: var(--text-stat);
+    }
+
+    .choice__text {
+        min-height: var(--control-h);
+        border-radius: var(--radius-md);
+    }
+
+    .check {
+        border-radius: var(--radius-md);
+    }
+}

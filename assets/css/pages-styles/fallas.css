@@ -1,88 +1,95 @@
-@import url("../variables.css");
-
-.fallas__header-container h2 {
-    font-size: var(--text-h1);
-}
-
-.fallas__main-btn-container {
-    margin: var(--space-4) 0;
-    padding: var(--space-1) var(--space-1);
-    background: var(--border-input);
+/* ------------------------- FILTRO (CONTROL SEGMENTADO) ------------------------- */
+.segmented {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-2);
-    height: fit-content;
+    gap: var(--space-1);
+    margin-bottom: var(--space-4);
+    padding: var(--space-1);
+    background: var(--border-input);
     border-radius: var(--radius-lg);
 }
 
-.fallas__main-btn-container button {
-    height: 40px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    cursor: pointer;
-    background: var(--surface);
-    font-weight: 500;
+.segmented__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: var(--control-h);
+    border-radius: var(--radius-sm);
     color: var(--text-seg);
-}
-
-.fallas__main-card {
-    background: var(--surface);
-    padding: var(--space-4);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-}
-
-.fallas__main-card-titles {
-    display: flex;
-    justify-content: space-between;
-}
-
-.fallas__main-card-titles span:first-child {
-    padding: var(--space-1);
-    background: var(--border);
-    color: var(--text-muted);
-    border-radius: var(--radius-xs);
-    font-size: var(--text-overline);
-}
-
-.fallas__main-card-titles span {
-    padding: var(--space-1);
-    border-radius: var(--radius-xs);
-    color: var(--danger);
-    font-size: var(--text-overline);
-    background: #a3261b62;
-    font-weight: bold;
-}
-
-.fallas__main-card-info {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    margin: var(--space-4) 0;
-}
-
-.fallas__main-card-info p:first-child {
-    font-weight: bold;
-    font-size: var(--m-text-input);
-}
-
-.fallas__main-card-info-middle {
-    font-weight: 400;
-}
-
-.fallas__main-card-info p:last-child {
-    font-size: var(--text-sm);
-    color: var(--text-muted);
-}
-
-.fallas__main-card-solve-btn {
-    background: var(--ok-text);
-    font-weight: bold;
     font-size: var(--text-base);
-    border: 1px solid var(--border-dashed);
-    border-radius: var(--radius-md);
-    color: #fff;
+    font-weight: var(--weight-medium);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.segmented__btn:hover {
+    color: var(--text);
+}
+
+.segmented__btn[aria-pressed="true"] {
+    background: var(--surface);
+    box-shadow: var(--shadow-seg);
+    color: var(--text);
+    font-weight: var(--weight-semibold);
+}
+
+.segmented__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: var(--radius-pill);
+    background: var(--surface-muted);
+    font-size: var(--text-xs);
+}
+
+.segmented__btn[aria-pressed="true"] .segmented__count {
+    background: var(--brand);
+    color: var(--brand-on);
+}
+
+/* ------------------------- TARJETA DE FALLA ------------------------- */
+.fallas__card-description {
+    color: var(--text);
+    font-size: var(--m-text-base);
+}
+
+.fallas__card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    margin-bottom: var(--space-2);
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+}
+
+/* Empuja el botón al fondo para alinear tarjetas de distinta altura */
+.fallas__card-btn {
     width: 100%;
-    height: 50px;
-    outline: none;
+    margin-top: auto;
+}
+
+/* ------------------------- TABLET ------------------------- */
+@media (min-width: 768px) {
+    .segmented {
+        max-width: 360px;
+        margin-bottom: var(--space-6);
+    }
+
+    .segmented__btn {
+        min-height: var(--control-h-sm);
+    }
+
+    .fallas__card-description {
+        font-size: var(--text-base);
+    }
+}
+
+/* ------------------------- DESKTOP ------------------------- */
+@media (min-width: 1024px) {
+    .segmented {
+        margin-bottom: var(--space-8);
+    }
 }
